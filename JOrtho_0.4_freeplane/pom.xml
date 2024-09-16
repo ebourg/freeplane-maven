@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.freeplane</groupId>
+  <artifactId>jortho</artifactId>
+  <parent>
+    <groupId>org.freeplane</groupId>
+    <artifactId>freeplane-parent</artifactId>
+    <version>1.12.6</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  <version>1.12.6</version>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>format-translation</id>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <phase>process-resources</phase>
+            <configuration>
+              <taskdef name="format_translation" classname="org.freeplane.ant.FormatTranslation" classpath="../freeplane_ant/target/freeplante-ant-${project.version}.jar"/>
+              <format_translation dir="./src/main/resources/com/inet/jortho/i18n" includes="*.properties" eolstyle="unix"/>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

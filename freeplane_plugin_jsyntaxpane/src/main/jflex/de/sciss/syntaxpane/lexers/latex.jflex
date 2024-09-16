@@ -44,7 +44,7 @@ import de.sciss.syntaxpane.TokenType;
 
     @Override
     public int yychar() {
-        return yychar;
+        return (int) yychar;
     }
 
     private static final byte PAREN     = 1;
